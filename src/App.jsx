@@ -25,7 +25,7 @@ function App() {
 				{status === 'active' && (
 					<>
 						<Progress />
-						<Question question={questions[index]} />
+						<Question />
 						<Footer>
 							<Timer />
 							<NextButton />

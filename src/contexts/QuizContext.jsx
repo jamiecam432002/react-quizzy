@@ -76,6 +76,11 @@ function QuizProvider({ children }) {
 		dispatch,
 	] = useReducer(reducer, initialState);
 
+	const numQuestions = questions.length;
+	const maxPoints = questions
+		.map((q) => q.points)
+		.reduce((prev, cur) => prev + cur, 0);
+
 	useEffect(function () {
 		async function fetchQuestions() {
 			try {
@@ -100,6 +105,8 @@ function QuizProvider({ children }) {
 				answer,
 				highscore,
 				secondsRemaining,
+				numQuestions,
+				maxPoints,
 				dispatch,
 			}}>
 			{children}
